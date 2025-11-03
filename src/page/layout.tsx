@@ -12,7 +12,7 @@ const navItems: NavItem[] = [
 ];
 
 const getNavClass = (isActive: boolean) =>
-  `nav-link p-2 ${isActive ? "active bg-secondary" : "text-secondary"}`;
+  `nav-link p-2 ${isActive ? "active bg-dark" : "text-dark"}`;
 
 const getNavStyle = (isActive: boolean) => ({
   color: isActive ? "white" : "white",
