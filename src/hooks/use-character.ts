@@ -7,22 +7,21 @@ export const useCharacter = (id: string) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCharacter = async () => {
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const data = await BrainrotService.getCharacterById(id);
-      setCharacter(data);
-    } catch {
-      setError("No se pudo obtener el personaje");
-      setCharacter(null);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchCharacter = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        const data = await BrainrotService.getCharacterById(id);
+        setCharacter(data);
+      } catch {
+        setError("No se pudo obtener el personaje");
+        setCharacter(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     fetchCharacter();
   }, [id]);
 
