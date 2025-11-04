@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import type { BrainrotCharacter } from "../interface/brainrot-character";
 
 interface Props {
@@ -11,24 +12,27 @@ const BrainrotsDisplay = ({ character }: Props) => {
   const origin = character?.origen;
 
   return (
-    <div className="card">
-      <div className="card-header">
+    <div className="card h-100 shadow-sm rounded-4 overflow-hidden">
+      <div className="bg-body-tertiary">
         <img
           src={image}
-          alt=""
-          className="img-fluid mx-auto d-block"
-          style={{
-            maxHeight: "300px",
-            transition: "transform 0.3s ease-in-out",
-          }}
+          alt={name}
+          className="card-img-top object-fit-cover"
+          style={{ aspectRatio: "16/9" }}
         />
       </div>
-      <div className="card-body">
-        <h1>{name}</h1>
-        <a>{descripcion}</a>
-        <a>{origin}</a>
-        <br />
-        <button className="btn btn-outline-dark">Ver detalles</button>
+
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title mb-1">{name}</h5>
+        <p className="text-muted small mb-4">{descripcion}</p>
+
+        <span className="badge text-bg-secondary align-self-start mb-3">
+          {origin}
+        </span>
+
+        { <NavLink className="btn btn-primary bg-dark border-dark" to={""}>
+          Ver detalles
+        </NavLink> }
       </div>
     </div>
   );

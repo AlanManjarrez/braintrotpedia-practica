@@ -12,11 +12,17 @@ const HomePage = () => {
   return (
     <div className="container mx-auto my-5">
       <div className="row justify-content-center">
-        {Array.isArray(characters) && characters.map((character) => (
-          <div key={character.id} className="col-12 col-md-6 col-lg-4 mb-4">
-            <BrainrotsDisplay character={character} />
-          </div>
-        ))}
+        <h1 className="row justify-content-center">Personajes de Brainrot</h1>
+        <span className="row justify-content-center text-secondary mb-5">
+          Los personajes mas populares de internet
+        </span>
+        
+        {Array.isArray(characters) &&
+          characters.map((character) => (
+            <div key={character.id} className="col-12 col-md-6 col-lg-4 mb-4">
+              <BrainrotsDisplay character={character} />
+            </div>
+          ))}
       </div>
     </div>
   );
