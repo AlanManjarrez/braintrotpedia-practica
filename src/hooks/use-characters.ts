@@ -22,7 +22,6 @@ export const useCharacters = () => {
 
   useEffect(() => {
     fetchCharacters();
-    console.log(characters);
   }, []);
   return { characters, isLoading, error };
 };
