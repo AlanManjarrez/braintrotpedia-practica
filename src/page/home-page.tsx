@@ -1,15 +1,10 @@
-import { useEffect } from "react";
 import BrainrotsDisplay from "../components/brainrot-display";
-import { useCharacter } from "../hooks/use-character";
-import { useParams } from "react-router";
+import { useCharacters } from "../hooks/use-characters";
 
 const HomePage = () => {
-  const { id } = useParams();
-  const { character, isLoading, error, fetchCharacter } = useCharacter();
+  const { characters, isLoading, error } = useCharacters();
 
-  useEffect(() => {
-    if(id) fetchCharacter(Number(id));
-  },[id]);
+  if (isLoading) return <h3 className="text-center mt-4">Cargando...</h3>;
   if (error) {
     return <div className="alert alert-danger text-center">{error}</div>;
   }
@@ -17,12 +12,11 @@ const HomePage = () => {
   return (
     <div className="container mx-auto my-5">
       <div className="row justify-content-center">
-        <div className="col-12 col-md-8 col-lg-6">
-          <BrainrotsDisplay
-            character={character}
-            isLoading={isLoading}
-          />
-        </div>
+        {Array.isArray(characters) && characters.map((character) => (
+          <div key={character.id} className="col-12 col-md-6 col-lg-4 mb-4">
+            <BrainrotsDisplay character={character} />
+          </div>
+        ))}
       </div>
     </div>
   );

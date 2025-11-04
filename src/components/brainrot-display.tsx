@@ -2,23 +2,17 @@ import type { BrainrotCharacter } from "../interface/brainrot-character";
 
 interface Props {
   character: BrainrotCharacter | null;
-  isLoading: boolean
 }
 
-const BrainrotsDisplay = ({ character, isLoading }: Props) => {
-  const image = character?.imageUrl;
-  const name = character?.name;
-  const descripcion = character?.description;
-  const origin = character?.origin;
+const BrainrotsDisplay = ({ character }: Props) => {
+  const image = character?.imagen;
+  const name = character?.nombre;
+  const descripcion = character?.descripcion;
+  const origin = character?.origen;
 
   return (
     <div className="card">
       <div className="card-header">
-        {isLoading && (
-          <div className="spinner-border text-dark" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        )}
         <img
           src={image}
           alt=""
@@ -33,6 +27,7 @@ const BrainrotsDisplay = ({ character, isLoading }: Props) => {
         <h1>{name}</h1>
         <a>{descripcion}</a>
         <a>{origin}</a>
+        <br />
         <button className="btn btn-outline-dark">Ver detalles</button>
       </div>
     </div>

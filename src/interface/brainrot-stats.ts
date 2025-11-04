@@ -1,6 +1,6 @@
 export interface BrainrotStats{
-    totalCharacters: number;
-    origins: string[];
-    levelPopularity: string[];
+    totalPersonajes: number;
+    origenes: string[];
+    nivelesPopularidad: string[];
     totalMemes: number;
 }
