@@ -10,7 +10,7 @@ const BrainrotService = {
     const data = await res.json();
     return data.data;
   },
-  async getCharacterById(id: number): Promise<BrainrotCharacter> {
+  async getCharacterById(id: string): Promise<BrainrotCharacter> {
     const res = await fetch(`${BRAINROT_API_URL}/personajes/${id}`);
     if (!res.ok) throw new Error("Error al obtener el personaje");
     const data = await res.json();

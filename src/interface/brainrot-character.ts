@@ -4,4 +4,6 @@ export interface BrainrotCharacter {
   descripcion: string;
   origen: string;
   imagen: string;
+  popularidad: string;
+  memes: string[];
 }

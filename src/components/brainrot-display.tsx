@@ -30,7 +30,7 @@ const BrainrotsDisplay = ({ character }: Props) => {
           {origin}
         </span>
 
-        { <NavLink className="btn btn-primary bg-dark border-dark" to={""}>
+        { <NavLink className="btn btn-primary bg-dark border-dark" to={`/detail/${character?.id}`}>
           Ver detalles
         </NavLink> }
       </div>
